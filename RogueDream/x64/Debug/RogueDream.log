@@ -1,1 +1,6 @@
-﻿  RogueDream.vcxproj -> C:\Users\Matteo\Documents\Visual Studio 2010\Projects\RogueDream\x64\Debug\RogueDream.exe
+﻿  input.cpp
+  game.cpp
+  Generating Code...
+MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+  RogueDream.vcxproj -> C:\Users\Matteo\Documents\Visual Studio 2010\Projects\RogueDream\x64\Debug\RogueDream.exe
+  RogueDream.vcxproj -> C:\Users\Matteo\Documents\Visual Studio 2010\Projects\RogueDream\x64\Debug\RogueDream.exe
