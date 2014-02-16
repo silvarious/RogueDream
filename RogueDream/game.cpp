@@ -1,5 +1,5 @@
 #include "game.h"
-#include "sprite.h"
+#include "player.h"
 #include "input.h"
 
 Game::Game()
@@ -46,8 +46,9 @@ void Game::onEventLoop()
 				running = false;
 
 			// Testing
-			Sprite player(graphics, "Player0.png", 0, 0, 16, 16);
-			player.draw(graphics, 320, 240);
+			graphics.clear();
+			Player player(graphics, kPlayerStartX, kPlayerStartY);
+			player.draw(graphics);
 			graphics.flip();
 		}
 	}

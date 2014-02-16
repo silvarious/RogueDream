@@ -6,6 +6,12 @@
 
 #include "graphics.h"
 
+namespace
+{
+	const float kPlayerStartX = 320;
+	const float kPlayerStartY = 240;
+}
+
 struct Game
 {
 	Game();
