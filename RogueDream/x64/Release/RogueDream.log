@@ -1,7 +1,8 @@
 ﻿  game.cpp
-  graphics.cpp
+  health_player.cpp
+  input.cpp
   main.cpp
-  sprite.cpp
+  player.cpp
   Generating code
   Finished generating code
   RogueDream.vcxproj -> C:\Users\Matteo\Documents\Visual Studio 2010\Projects\RogueDream\x64\Release\RogueDream.exe

@@ -6,6 +6,8 @@
 
 #include "graphics.h"
 
+struct Player;
+
 namespace
 {
 	const float kPlayerStartX = 320;
@@ -21,6 +23,8 @@ private:
 	void onEventLoop();
 	void update(float elapsed_time);
 	void draw(Graphics& graphics) const;
+
+	Player* player_;
 };
 
 #endif

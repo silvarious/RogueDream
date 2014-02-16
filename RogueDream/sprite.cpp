@@ -25,3 +25,11 @@ void Sprite::draw(Graphics& graphics, float x, float y) const
 
 	graphics.renderTexture(texture_, destination_x, destination_y, &source_);
 }
+
+void Sprite::drawFlipped(Graphics& graphics, float x, float y) const
+{
+	const int destination_x = (int)x;
+	const int destination_y = (int)y;
+
+	graphics.renderFlippedTexture(texture_, destination_x, destination_y, &source_, 180, NULL, SDL_FLIP_VERTICAL);
+}

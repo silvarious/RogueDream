@@ -58,6 +58,31 @@ void Graphics::renderTexture(SDL_Texture* image, const int x, const int y, const
 	renderTexture(image, destination, source);
 }
 
+void Graphics::renderFlippedTexture(SDL_Texture* image, const SDL_Rect destination, const SDL_Rect* source, const double angle, const SDL_Point* center, const SDL_RendererFlip flip) const
+{
+	SDL_RenderCopyEx(renderer_, image, source, &destination, angle, center, flip);
+}
+
+void Graphics::renderFlippedTexture(SDL_Texture* image, const int x, const int y, const SDL_Rect* source, const double angle, const SDL_Point* center, const SDL_RendererFlip flip) const
+{
+	SDL_Rect destination;
+
+	destination.x = x;
+	destination.y = y;
+
+	if (source != nullptr)
+	{
+		destination.w = source->w;
+		destination.h = source->h;
+	}
+	else
+	{
+		SDL_QueryTexture(image, nullptr, nullptr, &destination.w, &destination.h);
+	}
+
+	renderFlippedTexture(image, destination, source, angle, center, flip);
+}
+
 void Graphics::flip() const
 {
 	SDL_RenderPresent(renderer_);

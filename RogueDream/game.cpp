@@ -12,6 +12,8 @@ Game::Game()
 
 Game::~Game()
 {
+	delete player_;
+
 	IMG_Quit();
 	SDL_Quit();
 }
@@ -21,8 +23,10 @@ void Game::onEventLoop()
 	Graphics graphics;
 	SDL_Event sdl_event;
 	Input input;
-	bool running = true;
 
+	player_ = new Player(graphics, kPlayerStartX, kPlayerStartY);
+
+	bool running = true;
 	while (running)
 	{
 		while (SDL_PollEvent(&sdl_event))
@@ -33,6 +37,7 @@ void Game::onEventLoop()
 				input.keyDownEvent(sdl_event);
 				break;
 			case SDL_KEYUP:
+				player_->handleMovement(input);
 				input.keyUpEvent(sdl_event);
 				break;
 			case SDL_QUIT:
@@ -45,11 +50,16 @@ void Game::onEventLoop()
 			if (input.wasKeyPressed(SDLK_ESCAPE))
 				running = false;
 
-			// Testing
-			graphics.clear();
-			Player player(graphics, kPlayerStartX, kPlayerStartY);
-			player.draw(graphics);
-			graphics.flip();
+			draw(graphics);
 		}
 	}
+}
+
+void Game::draw(Graphics& graphics) const
+{
+	graphics.clear();
+
+	player_->draw(graphics);
+
+	graphics.flip();
 }

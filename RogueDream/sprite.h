@@ -14,6 +14,7 @@ struct Sprite
 
 	virtual void update(float elapsed_time) {}
 	void draw(Graphics& graphics, float x, float y) const;
+	void drawFlipped(Graphics& graphics, float x, float y) const;
 
 protected:
 	SDL_Rect source_;

@@ -4,6 +4,7 @@
 #include "sprite.h"
 
 struct Graphics;
+struct Input;
 
 struct Player
 {
@@ -11,6 +12,8 @@ struct Player
 
 	void update(float elapsed_time);
 	void draw(Graphics& graphics) const;
+
+	void handleMovement(Input input);
 
 	void moveLeft();
 	void moveRight();
@@ -20,6 +23,14 @@ struct Player
 	void takeDamage(int damage);
 
 private:
+	enum Facing
+	{
+		FIRST_FACING,
+		LEFT = FIRST_FACING,
+		RIGHT,
+		LAST_FACING,
+	};
+
 	enum MotionType
 	{
 		FIRST_MOTION_TYPE,
@@ -52,6 +63,7 @@ private:
 
 	Health health_;
 
+	Facing facing_;
 	Sprite player_;
 };
 

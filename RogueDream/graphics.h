@@ -20,6 +20,8 @@ struct Graphics
 	SDL_Texture* loadImage(const std::string& file_path);
 	void renderTexture(SDL_Texture* image, const SDL_Rect destination, const SDL_Rect* source) const;
 	void renderTexture(SDL_Texture* image, const int x, const int y, const SDL_Rect* source) const;
+	void renderFlippedTexture(SDL_Texture* image, const SDL_Rect destination, const SDL_Rect* source, const double angle, const SDL_Point* center, const SDL_RendererFlip flip) const;
+	void renderFlippedTexture(SDL_Texture* image, const int x, const int y, const SDL_Rect* source, const double angle, const SDL_Point* center, const SDL_RendererFlip flip) const;
 	void flip() const;
 	void clear() const;
 
