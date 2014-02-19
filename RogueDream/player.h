@@ -2,15 +2,17 @@
 #define PLAYER_H_
 
 #include "sprite.h"
+#include "animated_sprite.h"
 
 struct Graphics;
 struct Input;
+struct AABB;
 
 struct Player
 {
 	Player(Graphics& graphics, float x, float y);
 
-	void update(float elapsed_time);
+	void update();
 	void draw(Graphics& graphics) const;
 
 	void handleMovement(Input input);
@@ -64,7 +66,7 @@ private:
 	Health health_;
 
 	Facing facing_;
-	Sprite player_;
+	AnimatedSprite player_;
 };
 
 #endif

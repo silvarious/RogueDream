@@ -1,3 +1,7 @@
 ﻿  player.cpp
+player.cpp(18): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+player.cpp(18): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+player.cpp(18): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+player.cpp(18): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
   RogueDream.vcxproj -> C:\Users\Matteo\Documents\Visual Studio 2010\Projects\RogueDream\x64\Debug\RogueDream.exe
   RogueDream.vcxproj -> C:\Users\Matteo\Documents\Visual Studio 2010\Projects\RogueDream\x64\Debug\RogueDream.exe

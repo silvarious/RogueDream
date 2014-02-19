@@ -12,7 +12,7 @@ struct Sprite
 		   int source_x, int source_y, int width, int height);
 	virtual ~Sprite();
 
-	virtual void update(float elapsed_time) {}
+	virtual void update() {}
 	void draw(Graphics& graphics, float x, float y) const;
 	void drawFlipped(Graphics& graphics, float x, float y) const;
 

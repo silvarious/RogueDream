@@ -1,6 +1,9 @@
+#include <stdlib.h>
+
 #include "game.h"
 #include "player.h"
 #include "input.h"
+#include "map.h"
 
 Game::Game()
 {
@@ -27,8 +30,11 @@ void Game::onEventLoop()
 	player_ = new Player(graphics, kPlayerStartX, kPlayerStartY);
 
 	bool running = true;
+	float last_update_time = SDL_GetTicks();
 	while (running)
 	{
+		const float start_time = SDL_GetTicks();
+		input.beginNewFrame();
 		while (SDL_PollEvent(&sdl_event))
 		{
 			switch (sdl_event.type)
@@ -49,10 +55,22 @@ void Game::onEventLoop()
 
 			if (input.wasKeyPressed(SDLK_ESCAPE))
 				running = false;
-
-			draw(graphics);
 		}
+
+		const float current_time = SDL_GetTicks();
+		const float elapsed_time = current_time - last_update_time;
+		update(std::min(elapsed_time, kMaxFrameTime));
+		last_update_time = current_time;
+		
+		draw(graphics);
 	}
+}
+
+void Game::update(float elapsed_time)
+{
+	Timer::updateAll(elapsed_time);
+
+	player_->update();
 }
 
 void Game::draw(Graphics& graphics) const

@@ -7,11 +7,15 @@
 #include "graphics.h"
 
 struct Player;
+struct Map;
 
 namespace
 {
 	const float kPlayerStartX = 320;
 	const float kPlayerStartY = 240;
+
+	const unsigned int kFps = 60;
+	const float kMaxFrameTime = 5 * 1000.0f / kFps;
 }
 
 struct Game

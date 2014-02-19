@@ -3,24 +3,31 @@
 #include "game.h"
 #include "graphics.h"
 #include "input.h"
+#include "aabb.h"
 
 namespace
 {
-	const std::string kPlayerSpriteFilePath = "../Content/Characters/Player0.png";
+	const std::string kPlayerSpriteFilePath = "../Content/Characters/Player.png";
 	const int kPlayerSpriteSize = 16;
+	const unsigned int kAnimationFPS = 5;
+	const unsigned int kPlayerNumFrames = 2;
+	const int kPlayerFrameOffset = 8 * kPlayerSpriteSize;
 	const int kPlayerSpriteTopX = 0;
 	const int kPlayerSpriteTopY = 0;
 	const int kPlayerMoveAmount = 16;
+	const AABB kPlayerAABB(kPlayerSpriteTopX, kPlayerSpriteTopY, kPlayerSpriteSize, kPlayerSpriteSize);
 };
 
 Player::Player(Graphics& graphics, float x, float y) : x_(x), y_(y), health_(graphics), interacting_(false), facing_(LEFT),
-	player_(graphics, kPlayerSpriteFilePath, kPlayerSpriteTopX, kPlayerSpriteTopY, kPlayerSpriteSize, kPlayerSpriteSize)
+	player_(graphics, kPlayerSpriteFilePath, kPlayerSpriteTopX, kPlayerSpriteTopY, kPlayerSpriteSize, kPlayerSpriteSize,
+	kAnimationFPS, kPlayerNumFrames, kPlayerFrameOffset)
 {
 
 }
 
-void Player::update(float elapsed_time)
+void Player::update()
 {
+	player_.update();
 	health_.update();
 }
 
